@@ -8,23 +8,24 @@ body {
 }
 
 #disclaimer-banner {
+    --font-size: 1.2rem;
     position: absolute;
     display: flex;
     width: 100%;
-    padding: 1rem 1.2rem;
+    padding: calc(var(--font-size)*0.75) var(--font-size);
     justify-content: center;
     align-items: center;
     background-color: #fb4;
 
     * {
-        font-size: 1.2rem;
+        font-size: var(--font-size);
     }
 
     .l-icon {
-        height: 2.4rem;
-        width: 2.4rem;
-        margin-top: 0.4rem;
-        margin-right: 0.5rem;
+        height: calc(var(--font-size)*2);
+        width: calc(var(--font-size)*2);
+        margin-top: calc(var(--font-size)*0.33);
+        margin-right: calc(var(--font-size)*0.5);
         float: left;
     }
 
