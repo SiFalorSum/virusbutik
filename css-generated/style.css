@@ -48,9 +48,20 @@ body {
   font-size: 1.2rem;
 }
 #disclaimer-banner .l-icon {
-  width: 3rem;
-  height: 3rem;
-  margin: auto 1rem;
+  height: 2.4rem;
+  width: 2.4rem;
+  margin-top: 0.4rem;
+  margin-right: 0.5rem;
+  float: left;
+}
+#disclaimer-banner a {
+  color: #700;
+}
+#disclaimer-banner a:hover {
+  color: #c00;
+}
+#disclaimer-banner a:visited {
+  color: #705;
 }
 
 /*# sourceMappingURL=style.css.map */
