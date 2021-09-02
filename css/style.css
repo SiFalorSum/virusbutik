@@ -16,6 +16,7 @@
     text-overflow: ellipsis;
     text-shadow: none;
     text-indent: 0;
+    list-style: none;
     background-color: transparent;
 }
 
@@ -79,12 +80,14 @@ a:visited {
     --link-hue: 120deg;
 } 
  */
+nav li {
+    transition: all var(--transition-speed) ease;    
+}
 
-/* 
 nav li a {
     transition: none;
+    color: white;
 }
- */
 
 em {
     font-style: italic;
@@ -98,7 +101,8 @@ span {
 
 #disclaimer-banner {
     --font-size: 1.2rem;
-    position: absolute;
+    /* position: fixed; */
+    /* top: 0; */
     display: flex;
     width: 100%;
     padding: calc(var(--font-size)*0.75) var(--font-size);

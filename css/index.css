@@ -1,0 +1,91 @@
+/* body
+{
+    margin:0;
+    overflow: hidden;
+}
+header
+{
+    height: 10%;
+    width: 100%;
+    margin: auto;
+    padding: 25px;
+
+} */
+
+#logo {
+    display: flex;
+    margin-right: auto;
+    align-items: center;
+
+
+}
+
+.material-icons.md-virus {
+
+    color: greenyellow;
+    font-size: 4rem;
+    margin-right: auto;
+    margin-top: 1rem;
+}
+
+.material-icons.md-cart {
+
+    font-size: 4rem;
+    margin-left: auto;
+    margin-right: 4rem;
+    color: white;
+
+}
+
+.vstack {
+    color: white;
+    font-size: 2.4rem;
+    margin-left: 5px;
+}
+
+
+#main-nav
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* margin-top: 20px; */
+    width: 100%;
+    /* height: 100px; */
+    padding: 1.2rem 1.6rem;
+    background-color: #29295C;
+}
+
+#main-nav ul {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+}
+
+.menubar {
+    background-color: #6261D8;
+    border-bottom: 4px solid #6261D8;
+    padding: 1.66rem;
+    /* margin: -2px; */
+    text-decoration: none;
+    color: white;
+    /* width: 300px; */
+    /* font-family: Arial; */
+    font-size: 1.66rem;
+    font-weight: 600;
+}
+
+.menubar:hover
+{
+    border-bottom-color: greenyellow;
+}
+.menubar:active
+{
+    background-color: #3B32DC;
+}
+svg
+{
+    width: 40px;
+    height: 40px;
+}
