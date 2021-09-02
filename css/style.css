@@ -38,6 +38,26 @@ strong, b {
     font-weight: 800;
 }
 
+h1 {
+    font-size: 3em;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 1em;
+    font-variant: small-caps;
+}
+
 a {
     font-weight: 600;
     color: hsl(var(--link-hue), var(--link-saturation), var(--link-brightness));
