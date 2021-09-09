@@ -2,7 +2,8 @@ body
 {
     --background: #29295C;
     --menu-color: #6261D8;
-    --padding: 1.2em 1.6em;
+    --padding: 0em 1.6em;
+    --headerPadding: 1em 1.6em;
 }
 
 
@@ -12,18 +13,57 @@ footer {
     padding: var(--padding);
     display: flex;
     justify-content: left;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+#special-offer
+{
+    position: fixed;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+
 }
 
+#bannerImageDiv
+{
+    display: flex;
+    flex: 50%;
+}
+#bannerImage
+{
+    flex: 100%;
+}
+#offer
+{
+    background-color: #FFC943;
+    display: flex;
+    flex-direction: column;
+    flex: 50%;
+}
+#offerTitle
+{
+
+}
 #copyright {
+    display: flex;
+    align-items: center;
     margin-left: auto;
     margin-right: 50%;
     transform: translateX(50%);
+    color: white;
+
 }
 
 i.fab
 {
+    display: flex;
+    align-items: center;
     width: 40px;
     height: 40px;
+    font-size: 24px;
 }
 
 @media screen and (max-width: 720px) {
@@ -33,15 +73,17 @@ i.fab
     align-items: center;
     justify-content: left;
     width: 1fr;
-    top: 13%:
+    top: 13%;
     flex: 50%;
     order: 1;
 }
 
 #goto-cart {
+    display: flex;
+    margin-left: auto;
+    justify-content: right;
     width: 1fr;
     top: 13%;
-    margin-left: auto;
     flex: 50%;
     order: 2;
 }
@@ -83,7 +125,7 @@ i.fab
     /* margin-top: 20px; */
     width: 100%;
     /* height: 100px; */
-    padding: var(--padding);
+    padding: var(--headerPadding);
     background-color: var(--background);
 
 }
@@ -92,7 +134,7 @@ i.fab
     display: flex;
     flex-direction: column;
     width: 100%;
-    box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0.);
+    box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0);
     flex: 100%;
     order: 3;
 
@@ -190,7 +232,7 @@ i.fab
     /* margin-top: 20px; */
     width: 100%;
     /* height: 100px; */
-    padding: var(--padding);
+    padding: var(--headerPadding);
     background-color: var(--background);
 }
 
@@ -198,7 +240,8 @@ i.fab
     display: flex;
     flex-direction: row;
     width: 3fr;
-    box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0.);
+    margin-right: 7rem;
+    box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0);
 }
 
 #main-nav li {
@@ -208,7 +251,7 @@ i.fab
 .menubar {
     background-color: var(--menu-color);
     border-bottom: 4px solid var(--menu-color);
-    padding: 1.66rem;
+    padding: 1.3rem;
     width: 1fr;
     /* width: 20%; */
     /* margin: -2px; */
@@ -217,7 +260,7 @@ i.fab
     /* width: 300px; */
     /* font-family: Arial; */
     /* font-size: 1.66rem; */
-    font-size: clamp(1rem, 2vw, 1.66rem);
+    font-size: clamp(0.8rem, 2vw, 1.5rem);
     font-weight: 600;
 }
 
