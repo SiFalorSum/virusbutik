@@ -27,12 +27,9 @@
     font-size: 15px;
     font-weight: 400;
     line-height: 1.33;
-    --bg: hsl(210, 67%, 20%);
-    --bg-nav: hsl(214, 78%, 30%);
     --transition-speed: 300ms;
-    --link-hue: 105;
-    --link-saturation: 80%;
-    --link-brightness: 40%;
+    --link-color: greenyellow;
+    --link-hover: white;
 }
 
 strong, b {
@@ -61,14 +58,12 @@ h4 {
 
 a {
     font-weight: 600;
-    color: hsl(var(--link-hue), var(--link-saturation), var(--link-brightness));
+    color: var(--link-color);
     transition: all var(--transition-speed) ease;
 }
 
 a:hover {
-    --link-brightness: 60%;
-    --link-saturation: 100%;
-    /* filter: brightness(120%); */
+    color: var(--link-hover);
 }
 
 /* 
@@ -101,8 +96,6 @@ span {
 
 #disclaimer-banner {
     --font-size: 1.2rem;
-    /* position: fixed; */
-    /* top: 0; */
     display: flex;
     width: 100%;
     padding: calc(var(--font-size)*0.75) var(--font-size);
@@ -120,6 +113,14 @@ span {
     float: left;
 }
 
+#disclaimer-banner i {
+    font-size: calc(var(--font-size) * 2);
+}
+
 #disclaimer-banner a {
-    --link-hue: 0;
+    color: darkred;
+}
+
+#disclaimer-banner a:hover {
+    color: crimson;
 }
