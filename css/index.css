@@ -332,6 +332,7 @@ footer {
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 3%;
+    margin-bot: 3%;
     background-color: whitesmoke;
     border-radius: 10px;
 }
@@ -339,4 +340,8 @@ footer {
 .main-content p{
     margin: 25px;
     font-size: large;
+}
+
+.main-content a{
+    color: blueviolet;
 }
