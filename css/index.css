@@ -5,6 +5,7 @@ body
     --padding: 0em 1.6em;
     --headerPadding: 1em 1.6em;
     --textPadding: 2em 6em;
+    min-widht: 490px;
 }
 
 footer {
