@@ -53,9 +53,9 @@ footer {
     display: flex;
     flex-wrap:wrap;
     direction: column;
-    flex: 100%;
-    height: 100%;
+    justify-content:center;
     order: 2;
+
 
 }
 #copyright {
@@ -79,7 +79,8 @@ i.fab
     align-items: center;
     width: 100%;
     background: #cef6fd;
-    bottom: 0;
+    height: calc(100vh - 200px);
+
 }
 #popH1 {
     text-align: center;
