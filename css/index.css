@@ -315,10 +315,28 @@ i.fab
 
 
 footer {
-    position: absolute;
+    position: fixed;
     height: 40px;
+    marign-top: 0;
 }
 
 
 
+}
+
+
+.main-content{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+.main-content p{
+    margin: 25px;
+    font-size: large;
 }
