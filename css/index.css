@@ -44,6 +44,7 @@
     --background: #29295C;
     --menu-color: #6261D8;
     --menu-active: #3B32DC;
+    min-width: 490px;
 }
 
 body.darkmode {
@@ -324,6 +325,14 @@ i.fab {
 
 #offerTitle {
     margin-top: 2%;
+}
+
+#popularProducts {
+    display: flex;
+    flex-wrap:wrap;
+    direction: column;
+    justify-content:center;
+    order: 2;
 }
 
 /* Popular products */
