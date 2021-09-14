@@ -466,3 +466,26 @@ i.fab {
     }
 
 }
+
+/* Contact page */
+
+.main-content{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+.main-content p{
+    margin: 25px;
+    font-size: large;
+}
+
+.main-content a{
+    color: blueviolet;
+}
