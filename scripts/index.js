@@ -1,6 +1,16 @@
+/* DARKMODE FUNCTIONS AND LISTENERS */
+
+let body = document.getElementById('body');
 
 function toggleDarkMode() {
-    let el = document.getElementsByTagName('body').item(0);
-    el.classList.contains('darkmode') ?
-        el.classList.remove('darkmode') : el.classList.add('darkmode');
+    window.localStorage.setItem('darkmode', body.classList.toggle('darkmode')); //toggle returns true or false
 }
+
+function darkModeListener() {
+    let isDarkMode = (window.localStorage.getItem('darkmode') === 'true');
+    body.classList.toggle('darkmode', isDarkMode); //equivalent to 'add' if true, 'remove' if false
+}
+
+document.getElementById('darkmode-toggle').addEventListener('click', e => toggleDarkMode());
+document.addEventListener('DOMContentLoaded', e => darkModeListener());
+window.addEventListener('storage', e => darkModeListener());
