@@ -1,14 +1,6 @@
 /* DARKMODE FUNCTIONS AND LISTENERS */
 
 let body = document.getElementById('body');
-let menuButton = document.getElementById('menuButton');
-let menuBar = document.getElementById('menuBarID');
-let menuVisible = true;
-
-menuButton.addEventListener("click", e=> toggleMenu());
-document.getElementById('darkmode-toggle').addEventListener('click', e => toggleDarkMode());
-document.addEventListener('DOMContentLoaded', e => darkModeListener());
-window.addEventListener('storage', e => darkModeListener());
 
 function toggleDarkMode() {
     window.localStorage.setItem('darkmode', body.classList.toggle('darkmode')); //toggle returns true or false
@@ -44,6 +36,13 @@ function parseProducts(responseJSON) {
 }
 
 fetchJSON('../json/products.json', parseProducts);
+
+/* TOGGLE MENU */
+
+let menuButton = document.getElementById('menuButton');
+let menuBar = document.getElementById('menuBarID');
+let menuVisible = true;
+
 function toggleMenu()
 {
     if(menuVisible)
@@ -57,3 +56,5 @@ function toggleMenu()
         menuVisible = !menuVisible;
     }
 }
+
+menuButton.addEventListener("click", e=> toggleMenu());
