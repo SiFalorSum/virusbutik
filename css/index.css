@@ -144,6 +144,9 @@ span {
 }
 
 /* Header */
+.material-icons.md-menuButton {
+    display: none;
+}
 
 #logo {
     display: flex;
@@ -374,6 +377,19 @@ i.fab {
 
 
 @media screen and (max-width: 720px) {
+
+    .material-icons.md-menuButton {
+    display: flex;
+    color: white;
+    }
+
+    .material-icons.md-menuButton:hover {
+    transform: scale(1.4);
+    text-shadow: 3px 2px 5px var(--theme-color);
+
+
+    }
+
     #logo {
         /* display: flex; */
         /* margin-right: auto; */
