@@ -14,3 +14,25 @@ function darkModeListener() {
 document.getElementById('darkmode-toggle').addEventListener('click', e => toggleDarkMode());
 document.addEventListener('DOMContentLoaded', e => darkModeListener());
 window.addEventListener('storage', e => darkModeListener());
+
+/* PRODUCTS - LOAD, RENDERING, CART */
+
+async function fetchJSON(path, responseProcessorFunction) {
+    try {
+        let response = await fetch(path);
+        if (!response.ok) 
+            throw new Error(`Unable to load data from ${response.url}` 
+            + `\nStatus: ${response.status} - "${response.statusText}"`);
+        let products = await response.json();
+        responseProcessorFunction(products);
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+function parseProducts(responseJSON) {
+    console.log(responseJSON.products[0].name);
+}
+
+fetchJSON('../json/products.json', parseProducts);
