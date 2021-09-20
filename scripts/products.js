@@ -10,9 +10,10 @@ function cartHasProduct(productID) {
     return !! cart && !! cart["" + productID];
 }
 
+// FIXME
 function addToCart(productID) {
     if (cartHasProduct(productID)) return;
-    cart["" + productID] = { 
+    cart["" + productID] = { //FUNGERAR INTE! Nullreferens, inget nytt objektattribut skapas?
         "timestamp" : new Date().toJSON(), 
         "number-of-items" : 1
     };
@@ -73,6 +74,7 @@ function renderProductsPage(productsJSON) {
         //TODO:
         // - Lägg till "Läs mer"-knapp och popupfönster kopplad till denna.
         productDiv.appendChild(renderAddToCartButton(prod.id));
+        grid.appendChild(productDiv);
     });
 }
 
