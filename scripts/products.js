@@ -54,11 +54,11 @@ window.addEventListener('storage', e => loadCartFromStorage());
 
 function setAddToCartButtonInnerText(addToCartBtn, productID) {
     if (cartHasProduct(productID)) {
-        addToCartBtn.innerHTML = "Tillagd";
+        addToCartBtn.innerHTML = "Added";
         addToCartBtn.classList.add('added');
     }
     else {
-        addToCartBtn.innerHTML = "Lägg till";
+        addToCartBtn.innerHTML = "Add to cart";
         addToCartBtn.classList.remove('added');
     }
 }
@@ -78,14 +78,20 @@ function renderProductsPage(productsJSON) {
     if (!grid) return;
     
     productsJSON.products.forEach(prod => {
-        let productDiv = document.createElement('div');
+        let productDiv = document.createElement('li');
         let readMoreBtn = document.createElement('button');
+
         productDiv.classList.add('product');
         readMoreBtn.classList.add('read-more-btn');
+
         productDiv.insertAdjacentHTML('afterbegin',
-        `<img src="${prod.imageURL}" width="256" height="144" >` +
-        `<h2>${prod.name}<span>${prod.price} kr</span></h2>` +
-        `<p>${prod.summary}<p>`);
+        `
+        <img src="${prod.imageURL}" alt="Oopsy woopsy, we did a fucky wucky">
+        <h2>${prod.name}</h2>
+        <p class="price">${prod.price} kr</p>
+        <p>${prod.summary}</p>
+        `);
+
         //TODO:
         // - Lägg till "Läs mer"-knapp och popupfönster kopplad till denna.
         productDiv.appendChild(renderAddToCartButton(prod.id));
