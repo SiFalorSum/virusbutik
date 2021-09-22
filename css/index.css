@@ -231,10 +231,9 @@ footer {
     bottom: 0;
     width: 100%;
 }
-
-#productPanel
+.container .wrapper
 {
-
+    margin-bottom: 50px;
 }
 .img-responsive
 {
@@ -362,7 +361,10 @@ i.fab {
 #offerTitle {
     margin-top: 2%;
 }
-
+.container .wrapper
+{
+    margin-bottom: 30px;
+}
 #popularProducts {
     display: flex;
     flex-wrap:wrap;

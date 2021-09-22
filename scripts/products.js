@@ -106,11 +106,11 @@ function setAddToCartButtonInnerText(addToCartBtn, productID) {
     if (cartHasProduct(productID)) {
         addToCartBtn.innerHTML = "Added";
         addToCartBtn.classList.add('added');
-    }
-    else {
+    } else {
         addToCartBtn.innerHTML = "Add to cart";
         addToCartBtn.classList.remove('added');
     }
+}
 
 function setAddToCartButtonText() {
     document.querySelectorAll('.add-to-cart-btn').forEach(button => {
@@ -138,6 +138,7 @@ function renderAddToCartButton(product) {
 }
 
 function renderProductsPage(productsJSON) {
+        console.log("asd");
     let grid = document.getElementById('product-grid');
     if (!grid) return;
     
@@ -152,7 +153,7 @@ function renderProductsPage(productsJSON) {
         `
         <img src="${prod.imageURL}" alt="Oopsy woopsy, we did a fucky wucky">
         <h2>${prod.name}</h2>
-        <p class="price">${prod.price} kr</p>
+        <p class="price">$${prod.price}</p>
         <p>${prod.summary}</p>
         `);
 
@@ -166,8 +167,3 @@ function renderProductsPage(productsJSON) {
 }
 
 renderProductsPage(JSON.parse(productsString));
-document.addEventListener('DOMContentLoaded', e => loadCartFromStorage());
-window.addEventListener('storage', e => {
-    setAddToCartButtonText();
-    loadCartFromStorage();
-});
