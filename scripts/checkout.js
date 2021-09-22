@@ -4,26 +4,30 @@ let sumOfProducts = 0;
 function renderCart()
 {
     if(!productMap) return;
+    productPanel.insertAdjacentHTML("beforebegin", `<div class="form-group"><hr /></div>`);
     for( let productKey in productMap) {
        let product = productMap[productKey];
-        productPanel.insertAdjacentHTML("beforebegin", `<div className="form-group">
-    <div className="col-sm-3 col-xs-3">
-    <img class="cartProdImg" className="img-responsive" src=${product.url}/>
-    </div>
-    <div className="col-sm-6 col-xs-6">
-    <div className="col-xs-12">${product.name}</div>
-    </div>
-    <div className="col-sm-3 col-xs-3 text-right">
-    <h6><span>$</span>${product.price}</h6>
-    </div>
-    </div>`);
+        productPanel.insertAdjacentHTML("beforebegin", `
+            <div class="form-group">
+             <div class="col-sm-3 col-xs-3">
+                 <img class="img-responsive" src=${product.url}/>
+             </div>
+             <div class="col-sm-6 col-xs-6">
+                <div class="col-xs-12">${product.name}</div>
+             </div>
+            <div class="col-sm-3 col-xs-3 text-right">
+             <h6><span>$</span>${product.price}</h6>
+            </div>
+            </div>
+            <div class="form-group"><hr /></div>`);
     console.log(product);
     sumOfProducts += product.price;
     }
+
     productPanel.insertAdjacentHTML("afterend", `<div class="form-group">
                                     <div class="col-xs-12">
-                                        <strong>Order Total</strong>
-                                        <div class="pull-right"><span>$</span><span>${sumOfProducts}</span></div>
+                                        <strong id=" id="orderTotalText">Order Total</strong>
+                                        <div class="pull-right" id="orderTotal"><span>$</span><span>${sumOfProducts}</span></div>
                                     </div>
                                 </div>
                                 <div id="btnDiv">
