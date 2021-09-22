@@ -3,7 +3,6 @@ let productMap = JSON.parse( window.localStorage.getItem('cart'));
 let sumOfProducts = 0;
 function renderCart()
 {
-    if(!productMap) return;
     productPanel.insertAdjacentHTML("beforebegin", `<div class="form-group"><hr /></div>`);
     for( let productKey in productMap) {
        let product = productMap[productKey];
@@ -42,4 +41,5 @@ renderCart();
 let orderButton = document.getElementById("placeOrderBtn");
 orderButton.addEventListener("click", function(){
     window.alert("Thanks for your order!");
+    window.localStorage.removeItem("cart");
 });
