@@ -80,14 +80,17 @@ function cartHasProduct(productID) {
     return !! cart && !! cart["" + productID];
 }
 
-function addToCart(productID) {
-    if (cartHasProduct(productID)) {
-        delete cart["" + productID];
+function addToCart(product) {
+    if (cartHasProduct(product.id)) {
+        delete cart["" + product.id];
     }
     else {
-        cart["" + productID] = { 
-            "timestamp" : new Date().toJSON(), 
-            "number-of-items" : 1
+        cart["" + product.id] = {
+            "timestamp" : new Date().toJSON(),
+            "number-of-items" : 1,
+            "name" : product.name,
+            "price": product.price,
+            "url": product.imageURL
         };
     }
     console.log(cart);
@@ -97,6 +100,7 @@ function addToCart(productID) {
 
 document.addEventListener('DOMContentLoaded', e => loadCartFromStorage());
 window.addEventListener('storage', e => loadCartFromStorage());
+
 
 function setAddToCartButtonInnerText(addToCartBtn, productID) {
     if (cartHasProduct(productID)) {
@@ -121,14 +125,14 @@ function setAddToCartButtonText() {
     });
 }
 
-function renderAddToCartButton(productID) {
+function renderAddToCartButton(product) {
     let addToCartBtn = document.createElement('button');
     addToCartBtn.classList.add('add-to-cart-btn');
-    addToCartBtn.setAttribute('data-productid', productID);
+    addToCartBtn.setAttribute('data-productid', product.id);
     addToCartBtn.addEventListener('click', e => {
-        addToCart(productID);
+        addToCart(product);
         setAddToCartButtonText();
-        console.log(`Button for product ${productID} was clicked.`);
+        console.log(`Button for product ${product.id} was clicked.`);
     });
     return addToCartBtn;
 }
@@ -154,10 +158,10 @@ function renderProductsPage(productsJSON) {
 
         //TODO:
         // - Lägg till "Läs mer"-knapp och popupfönster kopplad till denna.
-        productDiv.appendChild(renderAddToCartButton(prod.id));
+        productDiv.appendChild(renderAddToCartButton(prod));
         grid.appendChild(productDiv);
     });
-    
+
     setAddToCartButtonText();
 }
 
