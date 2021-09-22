@@ -73,20 +73,26 @@ let productsString = `{
 
 function loadCartFromStorage() {
     cart = JSON.parse(window.localStorage.getItem('cart'));
+    if (!cart) cart = {};
 }
 
 function cartHasProduct(productID) {
     return !! cart && !! cart["" + productID];
 }
 
-// FIXME
 function addToCart(productID) {
-    if (cartHasProduct(productID)) return;
-    cart["" + productID] = { //FUNGERAR INTE! Nullreferens, inget nytt objektattribut skapas?
-        "timestamp" : new Date().toJSON(), 
-        "number-of-items" : 1
-    };
+    if (cartHasProduct(productID)) {
+        delete cart["" + productID];
+    }
+    else {
+        cart["" + productID] = { 
+            "timestamp" : new Date().toJSON(), 
+            "number-of-items" : 1
+        };
+    }
+    console.log(cart);
     window.localStorage.setItem('cart', JSON.stringify(cart));
+    setAddToCartButtonText();
 }
 
 document.addEventListener('DOMContentLoaded', e => loadCartFromStorage());
@@ -101,15 +107,29 @@ function setAddToCartButtonInnerText(addToCartBtn, productID) {
         addToCartBtn.innerHTML = "Add to cart";
         addToCartBtn.classList.remove('added');
     }
+
+function setAddToCartButtonText() {
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        if (cartHasProduct(button.dataset.productid)) {
+            button.innerHTML = "Ångra";
+            button.classList.add('added');
+        }
+        else {
+            button.innerHTML = "Lägg till";
+            button.classList.remove('added');
+        }
+    });
 }
 
 function renderAddToCartButton(productID) {
     let addToCartBtn = document.createElement('button');
     addToCartBtn.classList.add('add-to-cart-btn');
-    // addToCart kontrollerar om varan redan är tillagd, därför behöver eventlyssnaren inte tas bort efter köp.
-    addToCartBtn.addEventListener('click', e => addToCart(productID));
-    setAddToCartButtonInnerText(addToCartBtn, productID);
-    window.addEventListener('storage', e => setAddToCartButtonInnerText(addToCartBtn, productID));
+    addToCartBtn.setAttribute('data-productid', productID);
+    addToCartBtn.addEventListener('click', e => {
+        addToCart(productID);
+        setAddToCartButtonText();
+        console.log(`Button for product ${productID} was clicked.`);
+    });
     return addToCartBtn;
 }
 
@@ -137,6 +157,13 @@ function renderProductsPage(productsJSON) {
         productDiv.appendChild(renderAddToCartButton(prod.id));
         grid.appendChild(productDiv);
     });
+    
+    setAddToCartButtonText();
 }
 
 renderProductsPage(JSON.parse(productsString));
+document.addEventListener('DOMContentLoaded', e => loadCartFromStorage());
+window.addEventListener('storage', e => {
+    setAddToCartButtonText();
+    loadCartFromStorage();
+});
