@@ -82,16 +82,6 @@ h4 {
     font-variant: small-caps;
 }
 
-a {
-    font-weight: 600;
-    color: var(--link-color);
-    transition: all var(--transition-speed) ease;
-}
-
-a:hover {
-    color: var(--link-hover);
-}
-
 nav li {
     transition: all var(--transition-speed) ease;    
 }
@@ -253,9 +243,24 @@ footer {
     display: inline-block;
     margin-right: 1rem;
 }
-
+.social-link
+{
+    font-weight: 600;
+    color: var(--link-color);
+    transition: all var(--transition-speed) ease;
+}
+.social-link:hover
+{
+    color: var(--link-hover);
+}
 i.fab {
     font-size: var(--footer-font-size);
+}
+
+#btnDiv
+{
+    display: flex;
+    justify-content: right;
 }
 
 #darkmode-toggle {
